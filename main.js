@@ -8,50 +8,9 @@ const mainId = document.getElementById("mainId");
 const cardsContainer = document.querySelector(".cards-container");
 const asideProductDetail = document.getElementById("product-detail");
 const closeLaVaina = document.getElementById('closeLaVaina')
+const containerGlobalBody = document.getElementById('MainBody')
 
 
-emailbtn.addEventListener("click", showDropdown);
-btnMobile.addEventListener("click", displayMenu);
-cartIcon.addEventListener("click", asideDisplay);
-
-function showDropdown() {
-  const CartDropdownClosed = CartDropdown.classList.contains("InactiveItem");
-  dropdownFirst.classList.toggle("inactive");
-  if (!CartDropdownClosed) {
-    CartDropdown.classList.add("InactiveItem");
-  }
-}
-
-function displayMenu() {
- const CartDropdownClosed = CartDropdown.classList.contains("InactiveItem");
-
-   menuResponsive.classList.toggle("InactiveItem");
-  if (!CartDropdownClosed) {
-     CartDropdown.classList.add("InactiveItem");
-   }
-  if(!productDetailClosed){
-    productDetail.classList.add('InactiveItem')
-  }
- }
-
-function asideDisplay() {
-  const menuResponsiveClosed =
-    menuResponsive.classList.contains("InactiveItem");
-  const dropdownFirstClosed = dropdownFirst.classList.contains("inactive");
-  const productDetailClosed = productDetail.classList.contains('InactiveItem')
-
-  CartDropdown.classList.toggle("InactiveItem");
-  if (!menuResponsiveClosed) {
-    menuResponsive.classList.add("InactiveItem");
-  }
-  if (!dropdownFirstClosed) {
-    dropdownFirst.classList.add("inactive");
-  }
-
-  if(!productDetailClosed){
-    productDetail.classList.add('InactiveItem')
-  }
-}
 
 
 
@@ -85,30 +44,30 @@ productList.push({
 });
 
 productList.push({
-  name: "Bike",
-  price: 120,
+  name: "Macbook",
+  price: 1000,
   image:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "https://media.istockphoto.com/id/1143054730/es/foto/un-port%C3%A1til-de-pantalla-en-blanco-en-un-escritorio-para-el-concepto-de-negocios-y-freelance.jpg?s=612x612&w=0&k=20&c=jeAx20xglvVHxwNUAyW21yndZxptQ0lO3EGU7zg0t88=",
     index: 0,
-  description: 'With its practical position, this bike also fulfills a decorative function, add your hall or workspace.',
+  description: 'fast powerful and joe mama, its useful for work and stuff like that',
 });
 
 productList.push({
-  name: "Computer",
-  price: 750,
+  name: "Motorola",
+  price: 600,
   image:
-    "https://images.pexels.com/photos/38568/apple-imac-ipad-workplace-38568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/215583/pexels-photo-215583.jpeg?auto=compress&cs=tinysrgb&w=600",
     index: 1,
-  description: "it's unique design and it's powerful hardware makes this laptop the only computer you'll every want, with a 4k screen and a powerful processor, Intel gen 14th and a powerful graphic cards it can run literally any video game you want.",
+  description: "Motorola, fast and the best quality, camera with 1k pixels xD",
 });
 
 productList.push({
-  name: "José Luis",
+  name: "Pug",
   price: 10000,
   image:
-    "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/1289557/pexels-photo-1289557.jpeg?auto=compress&cs=tinysrgb&w=600",
   index: 2,
-  description: "A faithful slave, does't complain, knows how to cook, and speaks spanish, a professional cleaning and has studied laws in the university, but it's a loser",
+  description: "This dog is completely useless, doesn't work as a guardian and it just barks, eat and drink water",
 });
 
 productList.push({
@@ -184,6 +143,7 @@ productDetailClose.setAttribute('id', 'closeLaVaina');
  productDetailClose.addEventListener('click', () =>{
 
   productDetail.style.display = 'none';
+  containerGlobalBody.style.overflowY = 'auto';
 
 });
 
@@ -261,7 +221,7 @@ for (product of productList) {
 
   console.log(product.index);
 
-  productName.addEventListener("click", ( clickedProduct => { return () => {
+  productImg.addEventListener("click", ( clickedProduct => { return () => {
     const clickedImage = clickedProduct.image;
     const clickedPrice = clickedProduct.price
     const clickedName = clickedProduct.name
@@ -274,7 +234,50 @@ for (product of productList) {
     console.log(clickedImage)
 
     productDetail.style.display = 'flex';
-
+    containerGlobalBody.style.overflowY = 'hidden';
   }
   })(product));
+}
+
+emailbtn.addEventListener("click", showDropdown);
+btnMobile.addEventListener("click", displayMenu);
+cartIcon.addEventListener("click", asideDisplay);
+
+function showDropdown() {
+  const CartDropdownClosed = CartDropdown.classList.contains("InactiveItem");
+  dropdownFirst.classList.toggle("inactive");
+  if (!CartDropdownClosed) {
+    CartDropdown.classList.add("InactiveItem");
+  }
+}
+
+function displayMenu() {
+ const CartDropdownClosed = CartDropdown.classList.contains("InactiveItem");
+  const productDetailClosed = productDetail.style.display = 'none';
+   menuResponsive.classList.toggle("InactiveItem");
+  if (!CartDropdownClosed) {
+     CartDropdown.classList.add("InactiveItem");
+   }
+  if(!productDetailClosed){
+    productDetail.classList.add('InactiveItem')
+  }
+ }
+
+function asideDisplay() {
+  const menuResponsiveClosed =
+    menuResponsive.classList.contains("InactiveItem");
+  const dropdownFirstClosed = dropdownFirst.classList.contains("inactive");
+  const productDetailClosed = productDetail.classList.contains('InactiveItem')
+
+  CartDropdown.classList.toggle("InactiveItem");
+  if (!menuResponsiveClosed) {
+    menuResponsive.classList.add("InactiveItem");
+  }
+  if (!dropdownFirstClosed) {
+    dropdownFirst.classList.add("inactive");
+  }
+
+  if(!productDetailClosed){
+    productDetail.classList.add('InactiveItem')
+  }
 }
