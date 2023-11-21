@@ -420,6 +420,8 @@ nav {
 }
 .product-detail--info {
   margin: 24px 24px 0 24px;
+  width: 100%;
+    padding-left: 25px;
 }
 .product-detail--info p:nth-child(1) {
   font-weight: bold;
@@ -455,12 +457,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 7px;
 }
 
 @media (max-width: 640px) {
   .product-detail {
     width: 100%;
     position: fixed;
+
   }
 }
 
