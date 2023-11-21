@@ -268,12 +268,12 @@ for (product of productList) {
     const clickedDescription = clickedProduct.description
 
     asideProductImg.src = clickedImage;
-    firstP.textContent = clickedPrice;
+    firstP.textContent = '$ ' + clickedPrice;
     secondP.textContent = clickedName;
     thirdP.textContent = clickedDescription;
     console.log(clickedImage)
 
-    productDetail.style.display = 'block';
+    productDetail.style.display = 'flex';
 
   }
   })(product));
