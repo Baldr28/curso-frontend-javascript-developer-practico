@@ -33,15 +33,6 @@ productList.push({
     "it's unique design and it's powerful hardware makes this laptop the only computer you'll every want, with a 4k screen and a powerful processor, Intel gen 14th and a powerful graphic cards it can run literally any video game you want.",
 });
 
-productList.push({
-  name: "José Luis",
-  price: 10000,
-  image:
-    "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  index: 2,
-  description:
-    "A faithful slave, does't complain, knows how to cook, and speaks spanish, a professional cleaning and has studied laws in the university, but it's a loser",
-});
 
 productList.push({
   name: "Macbook",
@@ -91,15 +82,7 @@ productList.push({
   description: "it's just a crappy computer",
 });
 
-productList.push({
-  name: "José Luis",
-  price: 10000,
-  image:
-    "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  index: 2,
-  description:
-    "A faithful slave, does't complain, knows how to cook, and speaks spanish, a professional cleaning and has studied laws in the university, but it's a loser",
-});
+
 
 productList.push({
   name: "Bike",
@@ -121,15 +104,7 @@ productList.push({
     "it's unique design and it's powerful hardware makes this laptop the only computer you'll every want, with a 4k screen and a powerful processor, Intel gen 14th and a powerful graphic cards it can run literally any video game you want.",
 });
 
-productList.push({
-  name: "José Luis",
-  price: 10000,
-  image:
-    "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  index: 2,
-  description:
-    "A faithful slave, does't complain, knows how to cook, and speaks spanish, a professional cleaning and has studied laws in the university, but it's a loser",
-});
+
 
 const productDetail = document.createElement("aside");
 productDetail.classList.add("product-detail");
@@ -152,7 +127,7 @@ productDetailClose.appendChild(PDCimg);
 const asideProductImg = document.createElement("img");
 
 const productDetailInfo = document.createElement("div");
-productDetailInfo.classList.add("product-detail--info"); // Correct class name
+productDetailInfo.classList.add("product-detail--info");
 
 const firstP = document.createElement("p");
 const secondP = document.createElement("p");
@@ -294,10 +269,8 @@ for (product of productList) {
         productDetail.style.display = "flex";
         containerGlobalBody.style.overflowY = "hidden";
 
-        // Check if the viewport width is less than 600 pixels
         const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
 
-        // Apply styles or perform actions based on the condition
         if (isSmallScreen) {
           containerGlobalBody.style.overflowY = "hidden";
         } else {
