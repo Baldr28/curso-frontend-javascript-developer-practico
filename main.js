@@ -235,6 +235,16 @@ for (product of productList) {
 
     productDetail.style.display = 'flex';
     containerGlobalBody.style.overflowY = 'hidden';
+
+      // Check if the viewport width is less than 600 pixels
+const isSmallScreen = window.matchMedia('(max-width: 600px)').matches;
+
+// Apply styles or perform actions based on the condition
+if (isSmallScreen) {
+  containerGlobalBody.style.overflowY = 'hidden';
+} else {
+containerGlobalBody.style.overflowY = 'auto'}
+  
   }
   })(product));
 }
