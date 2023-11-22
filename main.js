@@ -251,6 +251,7 @@ for (product of productList) {
         console.log(cantidad)
 
         contador.textContent = cantidad;
+        
       };
     })(product)
   );
@@ -278,6 +279,13 @@ for (product of productList) {
         const clickedPrice = clickedProduct.price;
         const clickedName = clickedProduct.name;
         const clickedDescription = clickedProduct.description;
+
+        const dropdownFirstClosed = dropdownFirst.classList.contains("inactive");
+
+
+        if (!dropdownFirstClosed) {
+          dropdownFirst.classList.add("inactive");
+        }
 
         asideProductImg.src = clickedImage;
         firstP.textContent = "$ " + clickedPrice;
@@ -327,6 +335,7 @@ function displayMenu() {
   if (!productDetailClosed) {
     productDetail.style.display = 'none';
   }
+  
 }
 
 
