@@ -11,6 +11,8 @@ const closeLaVaina = document.getElementById("closeLaVaina");
 const containerGlobalBody = document.getElementById("MainBody");
 const orderContainer = document.getElementById("orderContainer");
 const totalp = document.getElementById("total");
+const shoppingCart = document.getElementsByClassName('shopping-cart');
+const contador = document.getElementById('contador')
 
 const productList = [];
 productList.push({
@@ -184,6 +186,10 @@ for (product of productList) {
   productInfoClassless.appendChild(productPrice);
   productInfoClassless.appendChild(productName);
 
+  var divs = document.querySelectorAll('.shopping-cart > div')
+  var cantidad = divs.length;
+  console.log(cantidad);
+
   const productInfoFigure = document.createElement("figure");
   const productImgCard = document.createElement("img");
   productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
@@ -208,7 +214,7 @@ for (product of productList) {
         productNameCart.textContent = clickedName;
 
         const productPriceCart = document.createElement("p");
-        productPriceCart.textContent = clickedPrice;
+        productPriceCart.textContent = '$' + clickedPrice;
 
         const closingImg = document.createElement("img");
         closingImg.setAttribute("src", "./icons/icon_close.png");
@@ -218,11 +224,15 @@ for (product of productList) {
           const shoppingCartClosest = closingImg.closest(".shopping-cart");
            console.log(clickedPrice)
            total -= parseFloat(clickedPrice);
-           totalp.textContent = total;
+           totalp.textContent = '$' + total;
+           cantidad -= 1;
+           contador.textContent = cantidad;
+
         if (shoppingCartClosest) {
             orderContainer.removeChild(shoppingCartClosest);
           }
       }})(product));
+     
 
         shoppingCart.appendChild(productNameCart);
         shoppingCart.appendChild(productPriceCart);
@@ -234,10 +244,19 @@ for (product of productList) {
 
         orderContainer.appendChild(shoppingCart);
 
-        totalp.textContent = total;
+        totalp.textContent = '$' + total;
+
+        cantidad++
+
+        console.log(cantidad)
+
+        contador.textContent = cantidad;
       };
     })(product)
   );
+
+
+
 
   productInfoFigure.appendChild(productImgCard);
 
@@ -270,7 +289,7 @@ for (product of productList) {
         containerGlobalBody.style.overflowY = "hidden";
 
         const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
-
+        
         if (isSmallScreen) {
           containerGlobalBody.style.overflowY = "hidden";
         } else {
@@ -286,24 +305,31 @@ btnMobile.addEventListener("click", displayMenu);
 cartIcon.addEventListener("click", asideDisplay);
 
 function showDropdown() {
+  const productDetailClosed = productDetail.style.display = "none";
+
   const CartDropdownClosed = CartDropdown.classList.contains("InactiveItem");
   dropdownFirst.classList.toggle("inactive");
   if (!CartDropdownClosed) {
     CartDropdown.classList.add("InactiveItem");
   }
+  if (!productDetailClosed) {
+    productDetail.style.display = 'none';
+  }
 }
 
 function displayMenu() {
   const CartDropdownClosed = CartDropdown.classList.contains("InactiveItem");
-  const productDetailClosed = (productDetail.style.display = "none");
+  const productDetailClosed = productDetail.style.display = "none";
   menuResponsive.classList.toggle("InactiveItem");
   if (!CartDropdownClosed) {
     CartDropdown.classList.add("InactiveItem");
   }
   if (!productDetailClosed) {
-    productDetail.classList.add("InactiveItem");
+    productDetail.style.display = 'none';
   }
 }
+
+
 
 function asideDisplay() {
   const menuResponsiveClosed =
@@ -320,6 +346,6 @@ function asideDisplay() {
   }
 
   if (!productDetailClosed) {
-    productDetail.classList.add("InactiveItem");
+    productDetail.style.display = 'none';
   }
 }
